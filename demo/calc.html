@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            border: 1px solid black;
+            width: 60px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="operand1" placeholder="10">
+    <input type="text" id="operation" placeholder="+">
+    <input type="text" id="operand2" placeholder="10">
+    <button type="button" onclick="calculate()">Calculate</button>
+    <div id="result_div">Result: </div>
+    <div id="error_div" style="color:red"></div>
+ 
+    <script>
+        // get operand 1 and operand 2
+        // recognize operation
+        // calculate
+        // show the result
+ 
+        function calculate() {
+            var operand1 = parseInt(document.getElementById("operand1").value);
+            var operand2 = parseInt(document.getElementById("operand2").value);
+            var operation = document.getElementById("operation").value;
+            var result = document.getElementById("result_div");
+            var error = document.getElementById("error_div");
+ 
+            if (document.getElementById("operand1").value == "") {
+                error.innerHTML = "First operand is empty";
+                return;
+            }
+            if (document.getElementById("operation").value == "") {
+                error.innerHTML = "Operation not provided";
+                return;
+            }
+ 
+            if (operation == "+") {
+                result.innerHTML = operand1 + operand2;
+            }
+            if (operation == "-") {
+                result.innerHTML = operand1 - operand2;
+            }
+            if (operation == "/") {
+                result.innerHTML = operand1 / operand2;
+            }
+            if (operation == "*") {
+                result.innerHTML = operand1 * operand2;
+            }
+        }
+ 
+        // validateForm() - (aggregate validations for operand and operation)
+        // validateOperand() - not empty, is Number
+        // validateOperation() - not empty, or one of these +,-,*,/
+        // validateDivisionByZero() - if op is division, second operand can't be 0
+ 
+    </script>
+</body>
+</html>

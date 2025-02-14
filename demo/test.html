@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #my_div{
+            color: red;
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="my_div">This is my content</div>
+    <button type="button" onclick="myfunction()">Click Me</button>
+    <script>
+        //var my_element = document.getElementById("my_div");
+        //my_element.innerHTML = "Updated by JS";
+ 
+        document.getElementById("my_div").innerHTML = "Updated again";
+ 
+        async function myfunction() {
+            const response = await fetch("http://54.234.135.255:8080/students?page=0", {
+                method: 'GET',
+                headers: {
+                    'X-Api-Key':'mySecretKey',
+                    'Content-Type':'application/json'
+                }
+            });
+            if (response.ok) {
+                console.log(response.json());
+            }
+        }
+    </script>
+</body>

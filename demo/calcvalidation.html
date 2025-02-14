@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            border: 1px solid black;
+            width: 60px;
+        }
+    </style>
+</head>
+<body>
+    
+        <input type="text" id="operand1" placeholder="10">
+        <input type="text" id="operation" placeholder="+">
+        <input type="text" id="operand2" placeholder="10">
+        <button type="button" onclick="calculate()">Calculate</button>
+        <div id="result_div">Result: </div>
+        <div id="error_div" style="color:red"></div>
+        <script>
+            function validateForm() {
+                var operand1 = document.getElementById("operand1").value;
+                var operand2 = document.getElementById("operand2").value;
+                var operation = document.getElementById("operation").value;
+                var error = document.getElementById("error_div");
+        
+                if (operand1 === "") {
+                    error.innerHTML = "First operand is empty";
+                    return false;
+                }
+                if (isNaN(operand1)) {
+                    error.innerHTML = "First operand is not a number";
+                    return false;
+                }
+                if (operand2 === "") {
+                    error.innerHTML = "Second operand is empty";
+                    return false;
+                }
+                if (isNaN(operand2)) {
+                    error.innerHTML = "Second operand is not a number";
+                    return false;
+                }
+                if (operation === "") {
+                    error.innerHTML = "Operation not provided";
+                    return false;
+                }
+                if (!["+", "-", "*", "/"].includes(operation)) {
+                    error.innerHTML = "Invalid operation";
+                    return false;
+                }
+                if (operation === "/" && parseInt(operand2) === 0) {
+                    error.innerHTML = "Division by zero is not allowed";
+                    return false;
+                }
+                error.innerHTML = "";
+                return true;
+            }
+        
+            function calculate() {
+                if (!validateForm()) {
+                    return;
+                }
+        
+                var operand1 = parseInt(document.getElementById("operand1").value);
+                var operand2 = parseInt(document.getElementById("operand2").value);
+                var operation = document.getElementById("operation").value;
+                var result = document.getElementById("result_div");
+        
+                if (operation == "+") {
+                    result.innerHTML = operand1 + operand2;
+                }
+                if (operation == "-") {
+                    result.innerHTML = operand1 - operand2;
+                }
+                if (operation == "/") {
+                    result.innerHTML = operand1 / operand2;
+                }
+                if (operation == "*") {
+                    result.innerHTML = operand1 * operand2;
+                }
+            }
+        </script>
+    
+</body>
+</html>

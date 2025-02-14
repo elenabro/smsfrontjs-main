@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+console.log("JS is working");
+// let, var, const
+
+var x = 10;
+
+x=10;
+console.log(x)
+console.log(typeof x)
+
+const z = 30;
+console.log(z)
+// z=100
+
+if (true) {
+    var a  = 10;
+    let b = 20;
+    const c = 3;
+}
+
+    console.log(a)
+    // console.log(b)
+    // console.log(c)
+
+// let is a block scope
+// const can't be reassign
+// var is a global scope
+
+// Hoisting
+console.log(var_output );
+var var_output = "VAR";
+
+
+// ==, ===, !=, !==, <, >, <=, >=
+let my_num = 5;
+let my_str = "5";
+console.log(my_num == my_str);
+console.log(my_num === my_str);
+
+console.log(0==false);
+console.log(0===false);
+
+console.log(null == undefined);
+console.log(null === undefined);
+
+
+// null, undefined, NaN
+let my_null = null;
+console.log(my_null);
+my_xyz = null;
+
+function isAdult(age) { 
+    if (age >= 18) {
+        return "Adult";
+    } else {
+        return "Minor";
+    }
+}
+
+console.log(isAdult(18));
+console.log(isAdult("Age"));
+
+
+let my_array = [9, 6, 3, 4, 5];
+for (let i = 0; i < my_array.length; i++) {
+    console.log("The array value: " + my_array[i]);   
+}
+
+
+
+let car ={
+    brand: "Mercedes",
+    model: "C200",
+    info: function() {
+        return this.brand + " " + this.model;
+    }
+};
+console.log(car.info());
+
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    whyyouare() {
+        return this.name + " " + this.age;
+    }
+   }
+   let person1 = new Person("John", 25);
+   console.log(person1.whyyouare());
+
+   let person2 = new Person("Doe", 30); 
+   console.log(person2.whyyouare());
+
+//    Arrow functions
+
+function addition (a, b) {
+    return a + b;
+}
+console.log(addition(5, 6));
+
+
+const addition2  = (a, b) => a + b;
+console.log(addition(5, 5));
+
+// addition and addition2 are same
+
+const substract = (a, b) => {
+    console.log("Substraction of a and b is: " );
+    return a - b;
+}
+console.log(substract(10, 5));
+
+const greet = () => "Hello";
+console.log(greet());
+
+
+// Use map() to iterate over an array
+
+const numbers1 = [1, 2, 3, 4, 5];
+const double_numbers = numbers1.map((num) => num * 2);
+console.log(double_numbers);
+
+// Use filter() to iterate over an array
+const words = ["hello", "world", "good", "morning"];
+const result = words.filter(word => word.length > 5);
+console.log(result);
+
+
+
+
+
+
+        </script>
+</body>
+</html>
