@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const apiUrl = 'http://54.234.135.255:8081/students';
+    // const apiUrl = 'http://54.234.135.255:8081/students';
+    const apiUrl = 'http://localhost:8080/students';
     const apiKey = 'mySecretKey';
     const studentTableBody = document.getElementById('studentTableBody');
 
